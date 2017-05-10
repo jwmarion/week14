@@ -12,6 +12,8 @@ import Reducer from './wikiPage/WikiPage.reducer.js';
 import WikiPageContainer from './wikiPage/WikiPage';
 import HomePageContainer from './wikiPage/homePage';
 import WikiPageReducer from './wikiPage/WikiPage.reducer';
+
+
 const reducer = Redux.combineReducers({
   WikiPage: WikiPageReducer
 });
