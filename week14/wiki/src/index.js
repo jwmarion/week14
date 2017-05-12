@@ -31,12 +31,12 @@ const HomePage = (
 );
 
 ReactDOM.render(
-    <Provider store={store}>
-  <Router history={hashHistory}>
-    <Route path="/" component={HomePageContainer}>
-    <Route path="/wiki/:page" componen={WikiPage}>
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={HomePageContainer}>
+      <Route path="/wiki/:page" componen={WikiPage}>
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById('root')
 )
