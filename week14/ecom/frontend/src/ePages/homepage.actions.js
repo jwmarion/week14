@@ -16,3 +16,25 @@ export function fetchItems(){
   }
   return asyncAction;
 }
+
+export function logIn(name,pass){
+  let asyncAction = function(dispatch){
+    $.ajax({
+      type: 'POST',
+      contentType: "application/json",
+      url: 'http://localhost:4000/api/user/signup',
+      data: JSON.stringify({
+        username: data.user,
+        password: data.pass,
+      }),
+      dataType: "json"
+    })
+    // .then(info=>dispatch(pageInfo(info)))
+    // .then(hashHistory.push('/'));
+  }
+  return asyncAction;
+} else{
+  return{
+    type: 'error'
+  }
+}

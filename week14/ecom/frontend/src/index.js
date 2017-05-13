@@ -10,10 +10,14 @@ import HomePageContainer from './ePages/homepage.js';
 import HomePageReducer from './ePages/homepage.reducer';
 import ProductDetailContainer from './ePages/productDetail'
 import ProductDetailReducer from './ePages/productDetail.reducer';
+import SignupContainer from './ePages/signup'
+import SignupReducer from './ePages/signup.reducer';
+
 
 const reducer = Redux.combineReducers({
  HomePage: HomePageReducer,
- ProductDetail: ProductDetailReducer
+ ProductDetail: ProductDetailReducer,
+ Signup: SignupReducer
 });
 
 const store = Redux.createStore(
@@ -29,6 +33,8 @@ class AppLayout extends React.Component {
       <div className='topRight'>
       <input className="userLogin" type='text'/>
       <input className="passLogin" type='text'/>
+      <button><Link to="/signUp">Sign Up!</Link></button>
+        <button>Log in!</button>
       </div>
     );
     return (
@@ -54,6 +60,7 @@ ReactDOM.render(
       <Route path="/" component={AppLayout}>
         <IndexRoute component={HomePageContainer}/>
       <Route path="/productDetail/:id" component={ProductDetailContainer}/>
+      <Route path="/signUp" component={SignupContainer}/>
       </Route>
     </Router>
   </ReactRedux.Provider>,
