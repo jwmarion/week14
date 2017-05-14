@@ -1,8 +1,17 @@
+import { Router, Route, hashHistory, Link, IndexRoute, IndexLink } from 'react-router';
+
 import $ from 'jquery';
 
 function pageInfo(info){
   return{
     type: 'fetchItem',
+    payload: info
+  }
+}
+
+function logInInfo(info){
+  return{
+    type: 'login',
     payload: info
   }
 }
@@ -17,24 +26,28 @@ export function fetchItems(){
   return asyncAction;
 }
 
-export function logIn(name,pass){
+export function logIn(data){
+  console.log('test');
   let asyncAction = function(dispatch){
     $.ajax({
       type: 'POST',
       contentType: "application/json",
-      url: 'http://localhost:4000/api/user/signup',
+      url: 'http://localhost:4000/api/user/login',
       data: JSON.stringify({
         username: data.user,
         password: data.pass,
       }),
       dataType: "json"
     })
-    // .then(info=>dispatch(pageInfo(info)))
+    .then(info=>dispatch(logInInfo(info)))
     // .then(hashHistory.push('/'));
   }
   return asyncAction;
-} else{
-  return{
-    type: 'error'
+}
+
+export function write(event,type){
+  return {
+    type: type,
+    text: event
   }
 }

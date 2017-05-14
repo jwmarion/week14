@@ -29,14 +29,15 @@ const store = Redux.createStore(
 class AppLayout extends React.Component {
   render() {
 
-    let topRight = (
+    let topRight;
+    console.log(this.props.userInfo);
+    if (this.props.userInfo != null){
+      topRight = (
       <div className='topRight'>
-      <input className="userLogin" type='text'/>
-      <input className="passLogin" type='text'/>
-      <button><Link to="/signUp">Sign Up!</Link></button>
-        <button>Log in!</button>
+      <h3>{'Welcome' + this.props.userInfo.username}</h3>
       </div>
     );
+  }
     return (
 
       <div>

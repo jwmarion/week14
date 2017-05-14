@@ -1,5 +1,5 @@
 
-export default function SignupReducer(state={Items: [],user:null,email:null, first: null, last:null, pass:null, conf: null, error: false},action){
+export default function SignupReducer(state={Items: [],user:null,email:null, first: null, last:null, pass:null, conf: null, error: null},action){
 
    if (action.type === 'user'){
     return Object.assign({}, state, {

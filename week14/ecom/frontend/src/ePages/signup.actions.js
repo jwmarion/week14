@@ -39,6 +39,6 @@ export function write(event,type){
   return {
     type: type,
     text: event
-} ;
+} 
 
 }

@@ -14,6 +14,11 @@ class Signup extends React.Component {
       pass:this.props.pass,
       confPass:this.props.confPass
     }
+      let errMsg = null;
+      if(this.props.error){
+        errMsg = 'There was an error';
+      }
+
     return(
       <div>
         <h1>Sign Up</h1>
@@ -27,7 +32,7 @@ class Signup extends React.Component {
         <input onChange={(event)=>this.props.write(event.target.value,'last')} className="last" type='text'/>
           <h3>Password</h3>
         <input onChange={(event)=>this.props.write(event.target.value,'pass')} className="pass" type='text'/>
-          <h3>Confirm Password</h3>
+          <h3>Confirm Password {errMsg}</h3>
         <input onChange={(event)=>this.props.write(event.target.value,'confPass')} className="confPass" type='text'/>
         <button onClick={()=>this.props.signup(object)}>Submit</button>
 
