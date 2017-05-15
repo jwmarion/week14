@@ -9,7 +9,10 @@ body {
   top: 0;
   width: 100%;
   background-color: lightBlue;
-  height: 3vw;
+  height: 5vw;
+}
+.navbar h1{
+  width: 33%;
 }
 .products{
   float: left;
@@ -40,6 +43,8 @@ body {
 }
 .topRight{
   float: right;
+  margin-right: 5vw;ng-cookies
+  margin-bottom: 5vw;
 }
 
 .products button{

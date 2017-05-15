@@ -16,3 +16,19 @@ export function fetchPage(id){
   }
   return asyncAction;
 }
+
+export function addCart(data){
+  let asyncAction = function(dispatch){
+    $.ajax({
+      type: 'POST',
+      contentType: "application/json",
+      url: 'http://localhost:4000/api/user/shopping_cart',
+      data: JSON.stringify({
+        user: data.user,
+        product: data.product,
+      }),
+      dataType: "json"
+    })
+  }
+  return asyncAction;
+}

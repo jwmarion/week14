@@ -21,7 +21,7 @@ class ProductDetail extends React.Component {
           <p>{this.props.Items.description}</p>
           <h2>${this.props.Items.price}.00</h2>
           <button><Link to="/">Go Back</Link></button>
-          <button><Link to="/">Buy Now!</Link></button>
+          <button onClick={()=>this.props.addCart({user:this.props.userInfo.id, product: this.props.Items.id})}>Add to Cart</button>
         </div>
 
       </div>

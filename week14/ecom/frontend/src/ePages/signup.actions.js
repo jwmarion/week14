@@ -7,7 +7,6 @@ import { Router, Route, hashHistory, Link, IndexRoute, IndexLink } from 'react-r
 // }
 
 export function signup(data){
-  console.log(data.pass +' ' +data.confPass)
   if(data.pass === data.confPass){
     let asyncAction = function(dispatch){
       $.ajax({
@@ -39,6 +38,6 @@ export function write(event,type){
   return {
     type: type,
     text: event
-} 
+}
 
 }

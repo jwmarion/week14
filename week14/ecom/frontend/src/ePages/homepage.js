@@ -10,25 +10,10 @@ class HomePage extends React.Component {
 
   render(){
     let display;
-    console.log(this.props.userInfo);
-    if (this.props.userInfo === null){
-      console.log('test');
-      display = (
-        <div>
-        <input onChange={(event)=>this.props.write(event.target.value,'uLog')}className="userLogin" type='text'/>
-        <input onChange={(event)=>this.props.write(event.target.value,'pLog')} className="passLogin" type='text'/>
-       <button><Link to="/signUp">Sign Up!</Link></button>
-         <button onClick={()=>this.props.logIn({user: this.props.uLog, pass: this.props.uPass})}>Log in!</button>
-         </div>
 
-     )
-    }
-    else{
-      display = (<h3>Welcome {this.props.userInfo.username}</h3>);
-    }
     return(
       <div className="page">
-      {display}
+      Hi 
       {this.props.allItems.map((page,idx)=>
             <div className='products' key={idx}>
               <img className='cover'  src={'/media/'+page.image_path}/>

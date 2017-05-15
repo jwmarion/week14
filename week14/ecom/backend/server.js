@@ -71,13 +71,7 @@ app.post('/api/user/signup', (req, resp, next) => {
     .catch(next);
 });
 
-/*
-Request body shape:
-{
-  username: "lolcat",
-  password: "forthelolz",
-}
-*/
+
 app.post('/api/user/login', (req, resp, next) => {
   let username = req.body.username;
   let password = req.body.password;
@@ -108,17 +102,22 @@ app.post('/api/user/login', (req, resp, next) => {
         email: customer.email,
         first_name: customer.first_name,
         last_name: customer.last_name,
-        auth_token: loginSession.token
+        auth_token: loginSession.token,
+        id: customer.id
       });
     });
 });
 
-app.use((err, req, resp, next) => {
-  resp.status(500);
-  resp.json({
-    message: err.message,
-    stack: err.stack.split('\n')
-  });
+app.post('/api/user/shopping_cart', (req, resp, next) => {
+  db.none(
+    `insert into product_in_shopping_cart values(default ,$1,$2)`,[
+    req.body.product, req.body.user])
 });
+
+// app.get('/api/user/cart_contents'),(req,resp,next) =>{
+//   db.any{
+//     `select name, price from product where`
+//   }
+// }
 
 app.listen(4000, () => console.log('Listening on 4000.'));
